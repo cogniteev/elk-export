@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 """
 title:           A CLI tool for exporting data from Logstash into a file.
-usage:           elk-export -o /tmp/elk-export.log
-                 elk-export --date-range "[2017-01-17 TO 2017-01-18}" -o /tmp/elk-export.log
-                 elk-export --date-range "[2017-01-17 TO 2017-01-18}" --tags nginx -o /tmp/elk-export.log
-                 elk-export --date-range "[2017-01-17 TO 2017-01-18}" --tags nginx -z -o /tmp/elk-export.log.gz
+usage:           elk_export -o /tmp/elk_export.log
+                 elk_export --date-range "[2017-01-17 TO 2017-01-18}" -o /tmp/elk_export.log
+                 elk_export --date-range "[2017-01-17 TO 2017-01-18}" --tags nginx -o /tmp/elk_export.log
+                 elk_export --date-range "[2017-01-17 TO 2017-01-18}" --tags nginx -z -o /tmp/elk_export.log.gz
 """
 import gzip
 import sys
@@ -111,7 +111,7 @@ def main():
     p.add_argument('--index-prefixes', dest='index_prefixes', default=['logstash-*'], type=str, nargs='+', metavar='INDEX', help='Index name prefix(es). Default is %(default)s.')
     p.add_argument('--tags', dest='tags', type=str, nargs='+', help='Query tags.')
     p.add_argument('-z', '--gzip', action='store_true', help='Compress output file with gzip')
-    p.add_argument('-o', '--output_file', dest='output_file', type=str, required=True, metavar='FILE', help='CSV file location.')
+    p.add_argument('-o', '--output_file', dest='output_file', type=str, required=True, metavar='FILE', help='output file location.')
 
     if len(sys.argv) == 1:
         p.print_help()
