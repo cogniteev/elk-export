@@ -1,4 +1,4 @@
-# ELK-EXPORTER
+# elk-export
 
 A CLI tool for exporting data from Logstash into a file.
 
@@ -6,7 +6,7 @@ A CLI tool for exporting data from Logstash into a file.
 
 From source:
 ```sh
- pip install git+https://github.com/cogniteev/elk-exporter.git
+ pip install git+https://github.com/cogniteev/elk-export.git
 ```
 
 If your elasticsearch is running on `localhost:9200` then simply type this command to export all events:
@@ -21,7 +21,7 @@ elk_export --date-range "[2017-01-17 TO 2017-01-18}" --tags nginx -z -o /tmp/elk
 
 ## Getting Started with docker
 
-`elk-exporter` can be used from docker directly. Since it will run in a container, we have to specify how to get our elasticsearch and mount a volume to have access to the exported file.
+`elk-export` can be used from docker directly. Since it will run in a container, we have to specify how to get our elasticsearch and mount a volume to have access to the exported file.
 
 ```sh
 docker run --rm -v /tmp:/tmp cogniteev/elk-export -o /tmp/logstash.log --es-host http://$(hostname -f):9200
@@ -55,3 +55,7 @@ optional arguments:
   -o FILE, --output_file FILE
                         output file location.
 ```
+
+## Related
+
+In case you are using ELK to store web server logs, you could also be interested in [oncrawl-elk](https://github.com/cogniteev/oncrawl-elk).
