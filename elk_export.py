@@ -27,7 +27,7 @@ class EsScanner:
         self.es_client = elasticsearch.Elasticsearch(es_host, timeout=CONNECTION_TIMEOUT)
 
     def start_scan(self, es_search_args):
-        es_args = dict(search_type='scan', scroll=SCROLL_TIME, size=SCROLL_SIZE)
+        es_args = dict(scroll=SCROLL_TIME, size=SCROLL_SIZE)
         es_args.update(es_search_args)
         scroll_init = self.es_client.search(**es_args)
 
